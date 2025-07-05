@@ -78,8 +78,8 @@ class ExchangeRateService
     {
         ExchangeRate::upsert(
             $data,
-            ['currency_from', 'currency_to', 'rate_date'],
-            ['rate', 'retrieved_at']
+            uniqueBy: ['currency_from', 'currency_to', 'rate_date'],
+            update: ['rate', 'retrieved_at']
         );
     }    
 }
